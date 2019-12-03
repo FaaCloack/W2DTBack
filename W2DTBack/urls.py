@@ -21,10 +21,14 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'categorias', views.CategoriaViewSet)
-router.register(r'lugares', views.LugarViewSet)
 router.register(r'precios', views.PrecioViewSet)
+router.register(r'resenas', views.ResenaViewSet)
+
 
 urlpatterns = [
+    path(
+        'lugares/', (views.LugarViewSet.as_view())
+    ),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

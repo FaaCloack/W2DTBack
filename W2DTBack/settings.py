@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'W2DTBack.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'what2do',
+        'USER': 'admin',
+        'PASSWORD': 'what2doadmin',
+        'HOST': 'localhost',
+        'PORT': ''                 # set to empty string for default
     }
 }
 
@@ -100,6 +104,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+}
 
 
 # Internationalization
